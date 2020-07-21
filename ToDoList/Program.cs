@@ -1,9 +1,20 @@
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
-public class program
+namespace ToDoList
 {
-  public static void Main()
+  public class program
   {
+    public static void Main()
+    {
+      var host = new WebHostBuilder()
+          .UseKestrel()
+          .UseContentRoot(Directory.GetCurrentDirectory())
+          .UseIISIntegration()
+          .UseStartup<Startup>()
+          .Build();
 
+        host.Run();
+    }
   }
 }
-
