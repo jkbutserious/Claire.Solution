@@ -57,7 +57,7 @@ namespace ToDoList.Tests
       Category newCategory1 = new Category(description01);
       Category newCategory2 = new Category(description02);
 
-      Category result = new Category("Incorrect Category");
+      Category result = Category.Find(2);
 
       Assert.AreEqual(newCategory2, result);
     }
