@@ -39,8 +39,8 @@ namespace ToDoList.Tests
     [TestMethod]
     public void GetAll_ReturnsAllCategoryObjects_CategoryList()
     {
-      string description01 = "Walk the dog";
-      string description02 = "Wash the dishes";
+      string description01 = "Work";
+      string description02 = "School";
       Category newCategory1 = new Category(description01);
       Category newCategory2 = new Category(description02);
       List<Category> newList = new List<Category> { newCategory1, newCategory2 };
@@ -48,7 +48,18 @@ namespace ToDoList.Tests
       List<Category> result = Category.GetAll();
 
       CollectionAssert.AreEqual(newList, result);
-      
+    }
+    [TestMethod]
+    public void Find_ReturnsCorrectCategory_Category()
+    {
+      string description01 = "Work";
+      string description02 = "School";
+      Category newCategory1 = new Category(description01);
+      Category newCategory2 = new Category(description02);
+
+      Category result = new Category("Incorrect Category");
+
+      Assert.AreEqual(newCategory2, result);
     }
   }
 }
