@@ -19,9 +19,18 @@ namespace ToDoList.Tests
     {
       string name = "Test Category";
       Category newCategory = new Category(name);
-      
+
       string result = newCategory.Name;
       Assert.AreEqual(name, result);
+    }
+    [TestMethod]
+    public void GetId_ReturnsCategoryId_Int()
+    {
+      string name = "Test Category";
+      Category newCategory = new Category(name);
+
+      int result = newCategory.Id;
+      Assert.AreEqual(1, result);
     }
   }
 }
