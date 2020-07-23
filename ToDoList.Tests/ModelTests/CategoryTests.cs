@@ -45,7 +45,7 @@ namespace ToDoList.Tests
       Category newCategory2 = new Category(description02);
       List<Category> newList = new List<Category> { newCategory1, newCategory2 };
 
-      List<Category> result = new List<Category>{};
+      List<Category> result = Category.GetAll();
 
       CollectionAssert.AreEqual(newList, result);
       
