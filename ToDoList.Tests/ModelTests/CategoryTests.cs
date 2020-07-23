@@ -36,5 +36,19 @@ namespace ToDoList.Tests
       int result = newCategory.Id;
       Assert.AreEqual(1, result);
     }
+    [TestMethod]
+    public void GetAll_ReturnsAllCategoryObjects_CategoryList()
+    {
+      string description01 = "Walk the dog";
+      string description02 = "Wash the dishes";
+      Category newCategory1 = new Category(description01);
+      Category newCategory2 = new Category(description02);
+      List<Category> newList = new List<Category> { newCategory1, newCategory2 };
+
+      List<Category> result = new List<Category>{};
+
+      CollectionAssert.AreEqual(newList, result);
+      
+    }
   }
 }
