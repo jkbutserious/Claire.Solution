@@ -1,15 +1,14 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ToDoList.Models;
-using MySql.Data.MySqlClient;
 using System.Collections.Generic;
+using ToDoList.Models;
 using System;
+using MySql.Data.MySqlClient;
 
 namespace ToDoList.Tests
 {
   [TestClass]
   public class ItemTest : IDisposable
   {
-
     public void Dispose()
     {
       Item.ClearAll();
@@ -28,11 +27,16 @@ namespace ToDoList.Tests
     // }
 
     // [TestMethod]
-    // public void GetDescription_ReturnDescription_String()
+    // public void GetDescription_ReturnsDescription_String()
     // {
+    //   //Arrange
     //   string description = "Walk the dog.";
+
+    //   //Act
     //   Item newItem = new Item(description);
     //   string result = newItem.Description;
+
+    //   //Assert
     //   Assert.AreEqual(description, result);
     // }
 
@@ -55,26 +59,14 @@ namespace ToDoList.Tests
     [TestMethod]
     public void GetAll_ReturnsEmptyListFromDatabase_ItemList()
     {
-      List<Item> newList = new List<Item> { }; // Arrange
+      // Arrange
+      List<Item> newList = new List<Item> { };
 
-      List<Item> result = Item.GetAll(); // Act
-
-      CollectionAssert.AreEqual(newList, result); // Assert
-    }
-
-    [TestMethod]
-    public void Save_SavesToDatabase_ItemList()
-    {
-      //Arrange
-      Item testItem = new Item("Mow the lawn");
-
-      //Act
-      testItem.Save();
+      // Act
       List<Item> result = Item.GetAll();
-      List<Item> testList = new List<Item> { testItem };
 
-      //Assert
-      CollectionAssert.AreEqual(testList, result);
+      // Assert
+      CollectionAssert.AreEqual(newList, result);
     }
 
     [TestMethod]
@@ -88,10 +80,13 @@ namespace ToDoList.Tests
       Item newItem2 = new Item(description02);
       newItem2.Save();
       List<Item> newList = new List<Item> { newItem1, newItem2 };
+
+      //Act
       List<Item> result = Item.GetAll();
+
+      //Assert
       CollectionAssert.AreEqual(newList, result);
     }
-
 
     // [TestMethod]
     // public void GetId_ItemsInstantiateWithAnIdAndGetterReturns_Int()
@@ -117,21 +112,35 @@ namespace ToDoList.Tests
       newItem2.Save();
 
       //Act
-      Item result = Item.Find(2);
-
+      Item foundItem = Item.Find(newItem.Id);
       //Assert
-      Assert.AreEqual(newItem2, result);
+      Assert.AreEqual(newItem, foundItem);
     }
 
     [TestMethod]
     public void Equals_ReturnsTrueIfDescriptionsAreTheSame_Item()
     {
-      //Arrange, Act
+      // Arrange, Act
       Item firstItem = new Item("Mow the lawn");
       Item secondItem = new Item("Mow the lawn");
 
-      //Assert
+      // Assert
       Assert.AreEqual(firstItem, secondItem);
+    }
+
+    [TestMethod]
+    public void Save_SavesToDatabase_ItemList()
+    {
+      //Arrange
+      Item testItem = new Item("Mow the lawn");
+
+      //Act
+      testItem.Save();
+      List<Item> result = Item.GetAll();
+      List<Item> testList = new List<Item> { testItem };
+
+      //Assert
+      CollectionAssert.AreEqual(testList, result);
     }
   }
 }
