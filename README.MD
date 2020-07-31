@@ -25,6 +25,37 @@ This project uses C# and MVC to create a web interface that will allow Claire to
 Requirements:
 * [.NET Core SDK 2.2](https://dotnet.microsoft.com/download/thank-you/dotnet-sdk-2.2.203-windows-x64-installer)
 
+To recreate the database using MySQL Workbench:
+
+_**Note**: These instructions assume that you have installed and set up your MySQL Server according to Epicodus's guidelines. For more information, see [Installing and Configuring MySQL](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c/installing-and-configuring-mysql)._
+
+1. Open Windows PowerShell, the MacOS Terminal, or your VS Code terminal and use the command ``mysql -uroot -pepicodus`` to ensure that your server is running.
+2. Open MySQL Workbench and double click your server instance.
+3. Click the **Schemas** tab.
+4. Click the **Create a new Schema in the connected server** button in the top navbar (fourth button from the left).
+5. For the **Database Name**, enter jeff_kim and keep the rest of the settings on their default values.
+6. Click **Apply** > **Apply** > **Finish**.
+7. In the **Schemas** sidebar, expand **jeff_kim**, right-click **Tables**, and click **Create Table**.
+8. In the **Name** field, enter *clients*.
+9. Create the following rows in the table:
+
+    | **Column Name** | **Datatype** | **PK** | **NN** | **UQ** | **B** | **UN** | **ZF** | **AI** | **G** | **Default/Expression** |
+    |-----------------|--------------|--------|--------|--------|-------|-------|--------|--------|-------|------------------------|
+    | ClientId | INT | X | X |   |   |   | X |   |   |
+    | name | VARCHAR(255) | | | | | | | | | |
+    | StylistId | INT | | | | | | | | | '0'|
+10. Click Click **Apply** > **Apply** > **Finish**.
+11. Right-click **Tables**, and click **Create Table**.
+12. In the **Name** field, enter *stylists*.
+13. Create the following rows in the table:
+
+    | **Column Name** | **Datatype** | **PK** | **NN** | **UQ** | **B** | **UN** | **ZF** | **AI** | **G** | **Default/Expression** |
+    |-----------------|--------------|--------|--------|--------|-------|-------|--------|--------|-------|------------------------|
+    | StylistId | INT | X | X | | | | | X | | |
+    | name | VARCHAR(255) | | | | | | | | | NULL |
+14. Click **Apply** > **Apply** > **Finish**.
+
+
 To use this program:
 
 1. Open your preferred browser.
