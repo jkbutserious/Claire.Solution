@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace ToDoList.Models
+namespace Claire.Models
 {
-  public class ToDoListContext : DbContext
+  public class ClaireContext : DbContext
   {
 
     public virtual DbSet<Category> Categories { get; set; }
