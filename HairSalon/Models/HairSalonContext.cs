@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Claire.Models
+namespace HairSalon.Models
 {
-  public class ClaireContext : DbContext
+  public class HairSalonContext : DbContext
   {
 
     public virtual DbSet<Category> Categories { get; set; }

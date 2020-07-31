@@ -1,7 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace Claire
+namespace HairSalon
 {
   public class Program
   {

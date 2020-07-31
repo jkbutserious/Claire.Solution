@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Claire.Models;
+using HairSalon.Models;
 
-namespace Claire
+namespace HairSalon
 {
   public class Startup
   {
