@@ -1,6 +1,6 @@
 # Eau Claire's Salon
 
-#### C# practice for Epicodus, 07.31.2020
+#### C# and Database practice for Epicodus, 07.31.2020
 
 ## By Jeff Kim
 

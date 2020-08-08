@@ -16,14 +16,68 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `__efmigrationshistory`
+--
+
+DROP TABLE IF EXISTS `__efmigrationshistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `__efmigrationshistory` (
+  `MigrationId` varchar(95) NOT NULL,
+  `ProductVersion` varchar(32) NOT NULL,
+  PRIMARY KEY (`MigrationId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `__efmigrationshistory`
+--
+
+LOCK TABLES `__efmigrationshistory` WRITE;
+/*!40000 ALTER TABLE `__efmigrationshistory` DISABLE KEYS */;
+INSERT INTO `__efmigrationshistory` VALUES ('20200808011501_Initial','2.2.6-servicing-10079');
+/*!40000 ALTER TABLE `__efmigrationshistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clients`
+--
+
+DROP TABLE IF EXISTS `clients`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `clients` (
+  `ClientId` int NOT NULL AUTO_INCREMENT,
+  `Name` longtext,
+  `StylistId` int NOT NULL,
+  PRIMARY KEY (`ClientId`),
+  KEY `IX_Clients_StylistId` (`StylistId`),
+  CONSTRAINT `FK_Clients_Stylists_StylistId` FOREIGN KEY (`StylistId`) REFERENCES `stylists` (`StylistId`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Dumping data for table `clients`
 --
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (10,'TestClient1',1),(11,'TestClient2',1),(12,'TestClient3',1),(13,'TestClient4',1);
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `stylists`
+--
+
+DROP TABLE IF EXISTS `stylists`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `stylists` (
+  `StylistId` int NOT NULL AUTO_INCREMENT,
+  `Name` longtext,
+  PRIMARY KEY (`StylistId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `stylists`
@@ -31,7 +85,6 @@ UNLOCK TABLES;
 
 LOCK TABLES `stylists` WRITE;
 /*!40000 ALTER TABLE `stylists` DISABLE KEYS */;
-INSERT INTO `stylists` VALUES (1,'Test');
 /*!40000 ALTER TABLE `stylists` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -44,4 +97,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-31 18:20:20
+-- Dump completed on 2020-08-07 18:15:48
